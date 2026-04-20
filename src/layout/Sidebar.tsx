@@ -3,7 +3,7 @@ import { useTheme } from '../context/useTheme'
 import { navItems } from './navConfig'
 
 export function Sidebar() {
-  const { theme, toggleTheme } = useTheme()
+  useTheme()
 
   return (
     <aside className="fixed left-0 top-0 z-40 hidden h-full w-[260px] flex-col border-r border-white/[0.06] bg-[#0A0A0A]/80 py-8 backdrop-blur-2xl md:flex">

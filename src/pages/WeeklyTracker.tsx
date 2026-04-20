@@ -4,12 +4,22 @@ import { GlassCard } from '../components/GlassCard'
 import {
   dayDetailPlaceholder,
   muscleGroups,
-  type WeekDayId,
-  weekDays,
 } from '../data/placeholders'
 
+type WeekDayId = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun'
+
+const weekDays: { id: WeekDayId; label: string; short: string }[] = [
+  { id: 'mon', label: 'Monday', short: 'M' },
+  { id: 'tue', label: 'Tuesday', short: 'T' },
+  { id: 'wed', label: 'Wednesday', short: 'W' },
+  { id: 'thu', label: 'Thursday', short: 'T' },
+  { id: 'fri', label: 'Friday', short: 'F' },
+  { id: 'sat', label: 'Saturday', short: 'S' },
+  { id: 'sun', label: 'Sunday', short: 'S' },
+]
+
 function isWeekDayId(id: string | undefined): id is WeekDayId {
-  return weekDays.some((d) => d.id === id)
+  return weekDays.some((d: { id: string }) => d.id === id)
 }
 
 export function WeeklyTracker() {
@@ -41,7 +51,7 @@ function WeekOverview() {
       </header>
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
-        {weekDays.map((d) => {
+        {weekDays.map((d: { id: WeekDayId, label: string, short: string }) => {
           const detail = dayDetailPlaceholder[d.id]
           return (
             <Link key={d.id} to={`/weekly/${d.id}`} className="group block">
@@ -62,7 +72,7 @@ function WeekOverview() {
 
 function DayDetail({ dayId }: { dayId: WeekDayId }) {
   const initial = dayDetailPlaceholder[dayId]
-  const dayLabel = weekDays.find((d) => d.id === dayId)?.label ?? dayId
+  const dayLabel = weekDays.find((d: { id: WeekDayId }) => d.id === dayId)?.label ?? dayId
 
   const [muscles, setMuscles] = useState<string[]>(() => [...initial.muscles])
   const [completed, setCompleted] = useState(initial.completed)
@@ -108,7 +118,7 @@ function DayDetail({ dayId }: { dayId: WeekDayId }) {
           <h2 className="text-sm font-semibold text-[var(--text)]">Muscles trained</h2>
           <p className="mt-1 text-xs text-[var(--text-muted)]">Tap to toggle (local preview only).</p>
           <div className="mt-3 flex flex-wrap gap-2">
-            {muscleGroups.map((m) => {
+            {muscleGroups.map((m: string) => {
               const on = muscles.includes(m)
               return (
                 <button

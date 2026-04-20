@@ -23,7 +23,7 @@ const SleepTooltip = ({ active, payload, label }: any) => {
 
 // Custom dot that highlights the best sleep night
 const BestSleepDot = (props: any) => {
-  const { cx, cy, value, index, data } = props
+  const { cx, cy, value, data } = props
   if (!data || data.length === 0) return null
   const max = Math.max(...data.map((d: any) => d.hours))
   if (value !== max || max === 0) return <circle cx={cx} cy={cy} r={3} fill="#818CF8" />

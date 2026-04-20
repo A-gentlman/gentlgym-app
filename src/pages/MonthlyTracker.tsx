@@ -4,7 +4,7 @@ import { GlassCard } from '../components/GlassCard'
 import { useTracker } from '../context/useTracker'
 import { muscleGroups } from '../data/placeholders'
 import { MuscleBodyMap } from '../components/dashboard/MuscleBodyMap'
-import { GlassWater, Droplets, Utensils, Beef, MoonStar, Dumbbell, Zap, ChevronDown, ChevronUp } from 'lucide-react'
+import { GlassWater, Utensils, Beef, MoonStar, Dumbbell, Zap, ChevronDown, ChevronUp } from 'lucide-react'
 
 export function MonthlyTracker() {
   const { dayId } = useParams()

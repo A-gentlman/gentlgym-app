@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { GlassWater, Beef, Zap, X, Plus } from 'lucide-react'
 import { useTracker } from '../context/useTracker'
 import { ConfirmationModal } from './ConfirmationModal'

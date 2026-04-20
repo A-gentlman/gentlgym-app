@@ -3,7 +3,7 @@ import { GlassCard } from '../components/GlassCard'
 import { ProgressBar } from '../components/ProgressBar'
 import { ConfirmationModal } from '../components/ConfirmationModal'
 import { useTracker } from '../context/useTracker'
-import { Plus, Trash2, Clock, Flame, Utensils, Edit2, X, Droplets, GlassWater } from 'lucide-react'
+import { Plus, Trash2, Clock, Flame, Utensils, Edit2, X, GlassWater } from 'lucide-react'
 
 export function NutritionTracker() {
   const {
